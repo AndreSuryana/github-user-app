@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_information">
+
+    <fragment
+        android:id="@+id/navigation_information"
+        android:name="com.example.githubuserapp.ui.userdetail.fragment.information.InformationFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_information" />
+
+    <fragment
+        android:id="@+id/navigation_followers"
+        android:name="com.example.githubuserapp.ui.userdetail.fragment.followers.FollowersFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_followers" />
+
+    <fragment
+        android:id="@+id/navigation_following"
+        android:name="com.example.githubuserapp.ui.userdetail.fragment.following.FollowingFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_following" />
+</navigation>

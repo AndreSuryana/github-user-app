@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:theme="@style/Theme.GitHubUserApp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="?attr/actionBarSize"
+    android:background="@color/extra_dark_grey"
+    tools:context=".ui.userdetail.fragment.information.InformationFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="32dp">
+        <!-- Avatar and Background Avatar Section Start -->
+        <ImageView
+            android:id="@+id/iv_avatar_bg"
+            style="@style/AvatarProfileBG"
+            android:contentDescription="@string/avatar_bg"
+            android:src="@drawable/placeholder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_avatar"
+            style="@style/AvatarProfile"
+            android:layout_marginTop="120dp"
+            android:src="@drawable/placeholder"
+            app:layout_constraintEnd_toEndOf="@+id/iv_avatar_bg"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="@+id/iv_avatar_bg"
+            app:layout_constraintTop_toTopOf="@+id/iv_avatar_bg" />
+
+        <!-- Avatar and Background Avatar Section End -->
+
+        <!-- Name and Username Section Start -->
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/TextContent.Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_avatar" />
+        <!-- Name and Username Section End -->
+
+        <!-- Profile Count Section Start -->
+        <TextView
+            android:id="@+id/tv_username"
+            style="@style/TextContent.Username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/username"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+        <TextView
+            android:id="@+id/tv_repository_value"
+            style="@style/ProfileCountText.Value"
+            android:layout_marginTop="32dp"
+            android:text="@string/default_value"
+            app:layout_constraintEnd_toStartOf="@+id/tv_followers_value"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_username" />
+
+        <TextView
+            android:id="@+id/repository"
+            style="@style/ProfileCountText.Label"
+            android:text="@string/repository"
+            app:layout_constraintEnd_toEndOf="@+id/tv_repository_value"
+            app:layout_constraintStart_toStartOf="@+id/tv_repository_value"
+            app:layout_constraintTop_toBottomOf="@+id/tv_repository_value" />
+
+        <TextView
+            android:id="@+id/tv_followers_value"
+            style="@style/ProfileCountText.Value"
+            android:layout_marginTop="32dp"
+            android:text="@string/default_value"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_username" />
+
+        <TextView
+            android:id="@+id/followers"
+            style="@style/ProfileCountText.Label"
+            android:text="@string/followers"
+            app:layout_constraintEnd_toEndOf="@+id/tv_followers_value"
+            app:layout_constraintStart_toStartOf="@+id/tv_followers_value"
+            app:layout_constraintTop_toBottomOf="@+id/tv_followers_value" />
+
+        <TextView
+            android:id="@+id/tv_following_value"
+            style="@style/ProfileCountText.Value"
+            android:layout_marginTop="32dp"
+            android:text="@string/default_value"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_followers_value"
+            app:layout_constraintTop_toBottomOf="@+id/tv_username" />
+
+        <TextView
+            android:id="@+id/tv_following"
+            style="@style/ProfileCountText.Label"
+            android:text="@string/following"
+            app:layout_constraintEnd_toEndOf="@+id/tv_following_value"
+            app:layout_constraintStart_toStartOf="@+id/tv_following_value"
+            app:layout_constraintTop_toBottomOf="@+id/tv_following_value" />
+        <!-- Profile Count Section End -->
+
+        <!-- Detail Information Section Start -->
+        <TextView
+            android:id="@+id/tv_label"
+            style="@style/ProfileCountText.Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bio_label"
+            app:layout_constraintBottom_toTopOf="@+id/tv_bio"
+            app:layout_constraintStart_toStartOf="@+id/tv_bio" />
+
+        <TextView
+            android:id="@+id/tv_bio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:text="@string/bio"
+            android:textColor="@color/extra_light_grey"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/followers" />
+
+        <ImageView
+            android:id="@+id/iv_company"
+            style="@style/InfoIcon"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="40dp"
+            android:contentDescription="@string/company"
+            android:src="@drawable/ic_company"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_bio" />
+
+        <TextView
+            android:id="@+id/tv_company"
+            style="@style/InfoTextContent"
+            android:layout_marginStart="8dp"
+            android:text="@string/company"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_company"
+            app:layout_constraintStart_toEndOf="@+id/iv_company"
+            app:layout_constraintTop_toTopOf="@+id/iv_company" />
+
+        <ImageView
+            android:id="@+id/iv_location"
+            style="@style/InfoIcon"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/location"
+            android:src="@drawable/ic_location"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_company" />
+
+        <TextView
+            android:id="@+id/tv_location"
+            style="@style/InfoTextContent"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/iv_location"
+            android:text="@string/location"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_location"
+            app:layout_constraintStart_toEndOf="@+id/iv_location"
+            app:layout_constraintTop_toTopOf="@+id/iv_location" />
+
+        <ImageView
+            android:id="@+id/iv_email"
+            style="@style/InfoIcon"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/email"
+            android:src="@drawable/ic_email"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_location" />
+
+        <TextView
+            android:id="@+id/tv_email"
+            style="@style/InfoTextContent"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/iv_location"
+            android:text="@string/email"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_email"
+            app:layout_constraintStart_toEndOf="@+id/iv_email"
+            app:layout_constraintTop_toTopOf="@+id/iv_email" />
+
+        <ImageView
+            android:id="@+id/iv_twitter"
+            style="@style/InfoIcon"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/twitter"
+            android:src="@drawable/ic_twitter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_email" />
+
+        <TextView
+            android:id="@+id/tv_twitter"
+            style="@style/InfoTextContent"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/iv_location"
+            android:text="@string/twitter"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_twitter"
+            app:layout_constraintStart_toEndOf="@+id/iv_twitter"
+            app:layout_constraintTop_toTopOf="@+id/iv_twitter" />
+        <!-- Detail Information Section Start -->
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/light_blue"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

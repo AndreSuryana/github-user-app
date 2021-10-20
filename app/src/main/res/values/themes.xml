@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.GitHubUserApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.GitHubUserApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/dark_grey</item>
         <item name="colorPrimaryVariant">@color/extra_dark_grey</item>
@@ -95,7 +95,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/light_grey</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:layout_centerVertical">true</item>
     </style>
 
