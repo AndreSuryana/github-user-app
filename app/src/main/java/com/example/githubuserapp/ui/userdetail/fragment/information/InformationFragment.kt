@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
@@ -30,7 +31,7 @@ class InformationFragment : Fragment() {
         _binding = FragmentInformationBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        showProgressBar(true)
+        showProgressBar()
 
         // Getting username value from MainActivity via BottomNavDetailActivity
         val username = activity?.intent?.getStringExtra(BottomNavDetailActivity.EXTRA_USERNAME)
@@ -41,7 +42,7 @@ class InformationFragment : Fragment() {
         viewModel.getUserDetailData().observe(viewLifecycleOwner, { user ->
             if (user != null) {
                 binding.apply {
-                    showProgressBar(false)
+                    hideProgressBar()
                     tvName.text = user.name
                     tvUsername.text = user.login
                     tvFollowersValue.text = user.followers.toString()
@@ -52,14 +53,8 @@ class InformationFragment : Fragment() {
                     tvLocation.text = user.location ?: "-"
                     tvEmail.text = user.email ?: "-"
                     tvTwitter.text = user.twitter_username ?: "-"
-                    Glide.with(this@InformationFragment)
-                        .load(user.avatar_url)
-                        .placeholder(R.drawable.placeholder)
-                        .into(ivAvatar)
-                    Glide.with(this@InformationFragment)
-                        .load(user.avatar_url)
-                        .placeholder(R.drawable.placeholder)
-                        .into(ivAvatarBg)
+                    ivAvatar.loadImage(user.avatar_url)
+                    ivAvatarBg.loadImage(user.avatar_url)
                 }
             }
         })
@@ -72,11 +67,18 @@ class InformationFragment : Fragment() {
         _binding = null
     }
 
-    private fun showProgressBar(isLoading: Boolean) {
-        if (isLoading) {
-            binding.progressBar.visibility = View.VISIBLE
-        } else {
-            binding.progressBar.visibility = View.GONE
-        }
+    private fun ImageView.loadImage(url: String?) {
+        Glide.with(this.context)
+            .load(url)
+            .placeholder(R.drawable.placeholder)
+            .into(this)
+    }
+
+    private fun showProgressBar() {
+        binding.progressBar.visibility = View.VISIBLE
+    }
+
+    private fun hideProgressBar() {
+        binding.progressBar.visibility = View.GONE
     }
 }

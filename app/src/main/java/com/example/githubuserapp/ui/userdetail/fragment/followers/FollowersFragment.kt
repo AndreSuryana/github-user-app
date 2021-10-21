@@ -28,7 +28,12 @@ class FollowersFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentFollowersBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         // Adapter Setup
         userAdapter = UserAdapter()
@@ -46,7 +51,7 @@ class FollowersFragment : Fragment() {
         }
 
         // Show progress bar, while getting data from api
-        showProgressBar(true)
+        showProgressBar()
 
         // Get username value from MainActivity
         username =
@@ -57,15 +62,14 @@ class FollowersFragment : Fragment() {
         viewModel.getListFollowers().observe(viewLifecycleOwner, { users ->
             if (users != null) {
                 userAdapter.setListUsers(users)
-                showProgressBar(false)
+                hideProgressBar()
                 if (users.size == 0) {
-                    showEmptyData(true)
+                    showEmptyData()
                 } else {
-                    showEmptyData(false)
+                    hideEmptyData()
                 }
             }
         })
-        return root
     }
 
     override fun onDestroyView() {
@@ -73,19 +77,19 @@ class FollowersFragment : Fragment() {
         _binding = null
     }
 
-    private fun showProgressBar(isLoading: Boolean) {
-        if (isLoading) {
-            binding.progressBar.visibility = View.VISIBLE
-        } else {
-            binding.progressBar.visibility = View.GONE
-        }
+    private fun showEmptyData() {
+        binding.noFollowers.visibility = View.VISIBLE
     }
 
-    private fun showEmptyData(isLoading: Boolean) {
-        if (isLoading) {
-            binding.noFollowers.visibility = View.VISIBLE
-        } else {
-            binding.noFollowers.visibility = View.GONE
-        }
+    private fun hideEmptyData() {
+        binding.noFollowers.visibility = View.GONE
+    }
+
+    private fun showProgressBar() {
+        binding.progressBar.visibility = View.VISIBLE
+    }
+
+    private fun hideProgressBar() {
+        binding.progressBar.visibility = View.GONE
     }
 }

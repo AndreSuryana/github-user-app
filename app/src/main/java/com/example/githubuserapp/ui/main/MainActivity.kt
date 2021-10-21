@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Show Not Found Fragment before data was loaded
-        showNotFoundFragment(true)
+        showNotFoundFragment()
 
         // Adapter Setup
         userAdapter = UserAdapter()
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-        showNotFoundFragment(false)
+        hideNotFoundFragment()
     }
 
     private fun searchUser() {
@@ -70,8 +70,8 @@ class MainActivity : AppCompatActivity() {
             android.widget.SearchView.OnQueryTextListener {
 
             override fun onQueryTextSubmit(query: String?): Boolean {
-                showNotFoundFragment(false)
-                showProgressBar(true)
+                hideNotFoundFragment()
+                showProgressBar()
                 viewModel.setSearchUsersResult(query)
                 return true
             }
@@ -85,27 +85,27 @@ class MainActivity : AppCompatActivity() {
         viewModel.getSearchUserResult().observe(this, {
             if (it != null) {
                 userAdapter.setListUsers(it)
-                showProgressBar(false)
+                hideProgressBar()
             }
             if (it.size == 0) {
-                showNotFoundFragment(true)
+                showNotFoundFragment()
             }
         })
     }
 
-    private fun showNotFoundFragment(isShow: Boolean) {
-        if (isShow) {
-            binding.notFound.visibility = View.VISIBLE
-        } else {
-            binding.notFound.visibility = View.GONE
-        }
+    private fun showNotFoundFragment() {
+        binding.notFound.visibility = View.VISIBLE
     }
 
-    private fun showProgressBar(isLoading: Boolean) {
-        if (isLoading) {
-            binding.progressBar.visibility = View.VISIBLE
-        } else {
-            binding.progressBar.visibility = View.GONE
-        }
+    private fun hideNotFoundFragment() {
+        binding.notFound.visibility = View.GONE
+    }
+
+    private fun showProgressBar() {
+        binding.progressBar.visibility = View.VISIBLE
+    }
+
+    private fun hideProgressBar() {
+        binding.progressBar.visibility = View.GONE
     }
 }

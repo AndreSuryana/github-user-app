@@ -10,10 +10,6 @@ import com.example.githubuserapp.databinding.ActivityBottomNavDetailBinding
 
 class BottomNavDetailActivity : AppCompatActivity() {
 
-    companion object {
-        const val EXTRA_USERNAME = "extra_username"
-    }
-
     private lateinit var binding: ActivityBottomNavDetailBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,5 +23,9 @@ class BottomNavDetailActivity : AppCompatActivity() {
         // Navigation Controller Setup
         val navController = findNavController(R.id.nav_host_fragment_activity_bottom_nav_detail)
         navView.setupWithNavController(navController)
+    }
+
+    companion object {
+        const val EXTRA_USERNAME = "extra_username"
     }
 }
