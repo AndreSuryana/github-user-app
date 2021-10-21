@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/extra_dark_grey"
     tools:context=".ui.main.MainActivity">
 
     <!-- Toolbar Section Start -->
@@ -97,6 +96,7 @@
             android:layout_height="60dp"
             android:layout_margin="4dp"
             android:src="@drawable/ic_search"
+            android:contentDescription="@string/search_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"

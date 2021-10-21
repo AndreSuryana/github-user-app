@@ -12,11 +12,13 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/extra_dark_grey</item>
     </style>
 
     <style name="Theme.GitHubUserApp.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/extra_dark_grey</item>
     </style>
 
     <style name="Theme.GitHubUserApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

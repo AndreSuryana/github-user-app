@@ -30,7 +30,6 @@ class BottomNavDetailViewModel : ViewModel() {
                 override fun onFailure(call: Call<ResponseUserDetail>, t: Throwable) {
                     Log.d("Failure", t.message.toString())
                 }
-
             })
     }
 

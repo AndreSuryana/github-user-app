@@ -5,7 +5,6 @@
     android:theme="@style/Theme.GitHubUserApp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/extra_dark_grey"
     tools:context=".ui.userdetail.fragment.followers.FollowersFragment">
 
     <!-- Toolbar Section Start -->

@@ -4,8 +4,7 @@
     android:id="@+id/container"
     android:theme="@style/Theme.GitHubUserApp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/extra_dark_grey">
+    android:layout_height="match_parent">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
