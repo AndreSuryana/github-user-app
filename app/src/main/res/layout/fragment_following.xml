@@ -83,6 +83,7 @@
             android:layout_height="60dp"
             android:layout_margin="4dp"
             android:src="@drawable/ic_no_sign"
+            android:contentDescription="@string/search_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
