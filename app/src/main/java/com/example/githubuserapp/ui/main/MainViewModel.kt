@@ -13,7 +13,11 @@ import retrofit2.Response
 
 class MainViewModel : ViewModel() {
 
-    val listUsers = MutableLiveData<ArrayList<User>>()
+    private val users = MutableLiveData<ArrayList<User>>()
+    val listUsers: LiveData<ArrayList<User>>
+        get() = users
+
+    var status = MutableLiveData<Boolean>()
 
     fun setSearchUsersResult(searchKeyword: String?) {
         ApiService.endPoint
@@ -24,11 +28,13 @@ class MainViewModel : ViewModel() {
                     response: Response<ResponseUser>
                 ) {
                     if (response.isSuccessful) {
-                        listUsers.postValue(response.body()?.items)
+                        users.postValue(response.body()?.items)
+                        status.postValue(true)
                     }
                 }
 
                 override fun onFailure(call: Call<ResponseUser>, t: Throwable) {
+                    status.postValue(false)
                     Log.d("Failure", t.message.toString())
                 }
             })

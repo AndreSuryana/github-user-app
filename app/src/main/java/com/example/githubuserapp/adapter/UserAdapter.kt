@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.githubuserapp.R
 import com.example.githubuserapp.databinding.ItemRowUserBinding
 import com.example.githubuserapp.data.model.User
 
@@ -43,7 +44,8 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
         fun bind(user: User) {
             binding.apply {
                 Glide.with(ivAvatar.context)
-                    .load(user.avatar_url)
+                    .load(user.avatarUrl)
+                    .placeholder(R.drawable.placeholder)
                     .into(ivAvatar)
                 tvUsername.text = user.login
             }

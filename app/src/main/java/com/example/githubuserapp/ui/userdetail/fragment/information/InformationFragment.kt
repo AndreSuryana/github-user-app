@@ -47,14 +47,14 @@ class InformationFragment : Fragment() {
                     tvUsername.text = user.login
                     tvFollowersValue.text = user.followers.toString()
                     tvFollowingValue.text = user.following.toString()
-                    tvRepositoryValue.text = user.public_repos.toString()
+                    tvRepositoryValue.text = user.publicRepos.toString()
                     tvBio.text = user.bio ?: "-"
                     tvCompany.text = user.company ?: "-"
                     tvLocation.text = user.location ?: "-"
                     tvEmail.text = user.email ?: "-"
-                    tvTwitter.text = user.twitter_username ?: "-"
-                    ivAvatar.loadImage(user.avatar_url)
-                    ivAvatarBg.loadImage(user.avatar_url)
+                    tvTwitter.text = user.twitterUsername ?: "-"
+                    ivAvatar.loadImage(user.avatarUrl)
+                    ivAvatarBg.loadImage(user.avatarUrl)
                 }
             }
         })

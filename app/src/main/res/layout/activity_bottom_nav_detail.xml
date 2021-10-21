@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/container"
     android:theme="@style/Theme.GitHubUserApp"
+    android:background="@color/extra_dark_grey"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 

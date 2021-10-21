@@ -37,7 +37,7 @@ class FollowingFragment : Fragment() {
 
         // Adapter Setup
         userAdapter = UserAdapter()
-        userAdapter.notifyDataSetChanged()
+        // userAdapter.notifyDataSetChanged()
 
         // View Model Setup
         viewModel =

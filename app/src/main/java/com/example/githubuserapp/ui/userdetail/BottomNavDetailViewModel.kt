@@ -12,7 +12,9 @@ import retrofit2.Response
 
 class BottomNavDetailViewModel : ViewModel() {
 
-    val user = MutableLiveData<ResponseUserDetail>()
+    private val userDetail = MutableLiveData<ResponseUserDetail>()
+    val user: LiveData<ResponseUserDetail>
+        get() = userDetail
 
     fun setUserDetailData(username: String?) {
         ApiService.endPoint
@@ -23,7 +25,7 @@ class BottomNavDetailViewModel : ViewModel() {
                     response: Response<ResponseUserDetail>
                 ) {
                     if (response.isSuccessful) {
-                        user.postValue(response.body())
+                        userDetail.postValue(response.body())
                     }
                 }
 

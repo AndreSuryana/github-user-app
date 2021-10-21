@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         // Adapter Setup
         userAdapter = UserAdapter()
-        userAdapter.notifyDataSetChanged()
+        // userAdapter.notifyDataSetChanged()
         userAdapter.setOnItemClickCallback(object : UserAdapter.OnItemClickCallback {
             override fun onItemClicked(user: User) {
                 Intent(this@MainActivity, BottomNavDetailActivity::class.java).also {
@@ -81,7 +82,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        // Observer
+        // View Model Observer
         viewModel.getSearchUserResult().observe(this, {
             if (it != null) {
                 userAdapter.setListUsers(it)
@@ -89,6 +90,14 @@ class MainActivity : AppCompatActivity() {
             }
             if (it.size == 0) {
                 showNotFoundFragment()
+            }
+        })
+
+        // Showing a Toast if error has been occured
+        viewModel.status.observe(this, { status ->
+            // If status false, then it means error
+            if (!status) {
+                Toast.makeText(this@MainActivity, "An error has been occurred!", Toast.LENGTH_SHORT).show()
             }
         })
     }

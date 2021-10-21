@@ -12,7 +12,6 @@
         android:id="@+id/toolbar_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/dark_grey"
         android:minHeight="?attr/actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,13 +82,13 @@
             android:layout_height="60dp"
             android:layout_margin="4dp"
             android:src="@drawable/ic_no_sign"
+            android:contentDescription="@string/search_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/light_grey"
-            android:contentDescription="TODO" />
+            app:tint="@color/light_grey" />
 
         <TextView
             android:id="@+id/tv_not_found"
