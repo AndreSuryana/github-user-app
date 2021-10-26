@@ -32,4 +32,5 @@
     <string name="no_followers" tools:ignore="ExtraTranslation">This user has no followers</string>
     <string name="no_folls" tools:ignore="ExtraTranslation">No one follows this user</string>
     <string name="search_icon">Search Icon</string>
+    <string name="share">Share</string>
 </resources>

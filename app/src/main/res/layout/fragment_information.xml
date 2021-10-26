@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:theme="@style/Theme.GitHubUserApp"
+    android:background="@color/extra_dark_grey"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginBottom="?attr/actionBarSize"
@@ -42,6 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/name"
+            android:maxLength="22"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_avatar" />
@@ -55,6 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/username"
+            android:maxLength="22"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_name" />
@@ -118,6 +121,7 @@
             style="@style/ProfileCountText.Label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
             android:text="@string/bio_label"
             app:layout_constraintBottom_toTopOf="@+id/tv_bio"
             app:layout_constraintStart_toStartOf="@+id/tv_bio" />
@@ -127,11 +131,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:padding="10dp"
             android:text="@string/bio"
             android:textColor="@color/extra_light_grey"
             android:textSize="16sp"
+            android:background="@drawable/outlined_rounded_rectangle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -141,7 +147,7 @@
             android:id="@+id/iv_company"
             style="@style/InfoIcon"
             android:layout_marginTop="32dp"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="24dp"
             android:contentDescription="@string/company"
             android:src="@drawable/ic_company"
             app:layout_constraintStart_toStartOf="parent"
@@ -159,7 +165,7 @@
         <ImageView
             android:id="@+id/iv_location"
             style="@style/InfoIcon"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
             android:contentDescription="@string/location"
             android:src="@drawable/ic_location"
@@ -179,7 +185,7 @@
         <ImageView
             android:id="@+id/iv_email"
             style="@style/InfoIcon"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
             android:contentDescription="@string/email"
             android:src="@drawable/ic_email"
@@ -199,7 +205,7 @@
         <ImageView
             android:id="@+id/iv_twitter"
             style="@style/InfoIcon"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
             android:contentDescription="@string/twitter"
             android:src="@drawable/ic_twitter"
@@ -227,6 +233,32 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ToggleButton
+            android:id="@+id/toggle_favorite"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/toggle_favorite"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:textOff=""
+            android:textOn=""
+            app:layout_constraintBottom_toBottomOf="@+id/tv_username"
+            app:layout_constraintStart_toEndOf="@+id/tv_username"
+            app:layout_constraintTop_toTopOf="@id/tv_name" />
+
+        <Button
+            android:id="@+id/btn_share"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="32dp"
+            android:drawableEnd="@drawable/ic_share"
+            android:text="@string/share"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_bio"
+            app:layout_constraintStart_toStartOf="@+id/tv_bio"
+            app:layout_constraintTop_toBottomOf="@id/iv_twitter" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

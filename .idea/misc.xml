@@ -3,12 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ANDRE/AndroidStudioProjects/GitHubUserApp/app/src/main/res/drawable/circle.xml" value="0.3106837606837607" />
+        <entry key="..\:/Users/ANDRE/AndroidStudioProjects/GitHubUserApp/app/src/main/res/drawable/ic_favorite_filled.xml" value="0.3106837606837607" />
+        <entry key="..\:/Users/ANDRE/AndroidStudioProjects/GitHubUserApp/app/src/main/res/drawable/ic_favorite_outlined.xml" value="0.3106837606837607" />
         <entry key="..\:/Users/ANDRE/AndroidStudioProjects/GitHubUserApp/app/src/main/res/drawable/ic_github.xml" value="0.3106837606837607" />
+        <entry key="..\:/Users/ANDRE/AndroidStudioProjects/GitHubUserApp/app/src/main/res/drawable/outlined_rounded_rectangle.xml" value="0.3106837606837607" />
         <entry key="..\:/Users/ANDRE/AndroidStudioProjects/GitHubUserApp/app/src/main/res/drawable/rounded_rectangle.xml" value="0.3769230769230769" />
+        <entry key="..\:/Users/ANDRE/AndroidStudioProjects/GitHubUserApp/app/src/main/res/drawable/rounded_rectangle_green.xml" value="0.3106837606837607" />
         <entry key="..\:/Users/ANDRE/AndroidStudioProjects/GitHubUserApp/app/src/main/res/drawable/shape_search.xml" value="0.3141025641025641" />
         <entry key="..\:/Users/ANDRE/AndroidStudioProjects/GitHubUserApp/app/src/main/res/drawable/splash_image.xml" value="0.33" />
+        <entry key="..\:/Users/ANDRE/AndroidStudioProjects/GitHubUserApp/app/src/main/res/drawable/toggle_favorite.xml" value="0.3106837606837607" />
         <entry key="..\:/Users/ANDRE/AndroidStudioProjects/GitHubUserApp/app/src/main/res/layout-land/activity_user_detail.xml" value="0.47708333333333336" />
         <entry key="..\:/Users/ANDRE/AndroidStudioProjects/GitHubUserApp/app/src/main/res/layout/activity_bottom_nav_detail.xml" value="0.25" />
+        <entry key="..\:/Users/ANDRE/AndroidStudioProjects/GitHubUserApp/app/src/main/res/layout/activity_detail.xml" value="0.29743589743589743" />
         <entry key="..\:/Users/ANDRE/AndroidStudioProjects/GitHubUserApp/app/src/main/res/layout/activity_detail_user.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/ANDRE/AndroidStudioProjects/GitHubUserApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/ANDRE/AndroidStudioProjects/GitHubUserApp/app/src/main/res/layout/activity_user_detail.xml" value="0.33" />
@@ -16,7 +23,7 @@
         <entry key="..\:/Users/ANDRE/AndroidStudioProjects/GitHubUserApp/app/src/main/res/layout/fragment_follow.xml" value="0.29743589743589743" />
         <entry key="..\:/Users/ANDRE/AndroidStudioProjects/GitHubUserApp/app/src/main/res/layout/fragment_followers.xml" value="0.29743589743589743" />
         <entry key="..\:/Users/ANDRE/AndroidStudioProjects/GitHubUserApp/app/src/main/res/layout/fragment_following.xml" value="0.29743589743589743" />
-        <entry key="..\:/Users/ANDRE/AndroidStudioProjects/GitHubUserApp/app/src/main/res/layout/fragment_information.xml" value="0.29743589743589743" />
+        <entry key="..\:/Users/ANDRE/AndroidStudioProjects/GitHubUserApp/app/src/main/res/layout/fragment_information.xml" value="0.25" />
         <entry key="..\:/Users/ANDRE/AndroidStudioProjects/GitHubUserApp/app/src/main/res/layout/fragment_list_user.xml" value="0.33" />
         <entry key="..\:/Users/ANDRE/AndroidStudioProjects/GitHubUserApp/app/src/main/res/layout/fragment_not_found.xml" value="0.30085470085470084" />
         <entry key="..\:/Users/ANDRE/AndroidStudioProjects/GitHubUserApp/app/src/main/res/layout/item_row_user.xml" value="0.25" />

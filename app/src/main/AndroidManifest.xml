@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/SplashScreen">
         <activity
-            android:name=".ui.userdetail.BottomNavDetailActivity"
+            android:name=".ui.userdetail.UserDetailActivity"
             android:exported="false"
             android:label="@string/title_activity_bottom_nav_detail" />
         <activity

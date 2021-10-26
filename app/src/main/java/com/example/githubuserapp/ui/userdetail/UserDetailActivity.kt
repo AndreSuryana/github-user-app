@@ -6,15 +6,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.githubuserapp.R
-import com.example.githubuserapp.databinding.ActivityBottomNavDetailBinding
+import com.example.githubuserapp.databinding.ActivityUserDetailBinding
 
-class BottomNavDetailActivity : AppCompatActivity() {
+class UserDetailActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityBottomNavDetailBinding
+    private lateinit var binding: ActivityUserDetailBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityBottomNavDetailBinding.inflate(layoutInflater)
+        binding = ActivityUserDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // Bottom Navigation Setup
@@ -29,5 +29,6 @@ class BottomNavDetailActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_USERNAME = "extra_username"
+        const val EXTRA_ID = "extra_id"
     }
 }

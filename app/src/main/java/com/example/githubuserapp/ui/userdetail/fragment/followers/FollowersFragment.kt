@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.githubuserapp.adapter.UserAdapter
 import com.example.githubuserapp.databinding.FragmentFollowersBinding
-import com.example.githubuserapp.ui.userdetail.BottomNavDetailActivity
+import com.example.githubuserapp.ui.userdetail.UserDetailActivity
 
 class FollowersFragment : Fragment() {
 
@@ -55,7 +55,7 @@ class FollowersFragment : Fragment() {
 
         // Get username value from MainActivity
         username =
-            activity?.intent?.getStringExtra(BottomNavDetailActivity.EXTRA_USERNAME).toString()
+            activity?.intent?.getStringExtra(UserDetailActivity.EXTRA_USERNAME).toString()
 
         // View Model
         viewModel.setListFollowers(username)

@@ -12,7 +12,7 @@ import com.example.githubuserapp.R
 import com.example.githubuserapp.adapter.UserAdapter
 import com.example.githubuserapp.data.model.User
 import com.example.githubuserapp.databinding.ActivityMainBinding
-import com.example.githubuserapp.ui.userdetail.BottomNavDetailActivity
+import com.example.githubuserapp.ui.userdetail.UserDetailActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,8 +36,9 @@ class MainActivity : AppCompatActivity() {
         // userAdapter.notifyDataSetChanged()
         userAdapter.setOnItemClickCallback(object : UserAdapter.OnItemClickCallback {
             override fun onItemClicked(user: User) {
-                Intent(this@MainActivity, BottomNavDetailActivity::class.java).also {
-                    it.putExtra(BottomNavDetailActivity.EXTRA_USERNAME, user.login)
+                Intent(this@MainActivity, UserDetailActivity::class.java).also {
+                    it.putExtra(UserDetailActivity.EXTRA_USERNAME, user.login)
+                    it.putExtra(UserDetailActivity.EXTRA_ID, user.id)
                     startActivity(it)
                 }
             }
