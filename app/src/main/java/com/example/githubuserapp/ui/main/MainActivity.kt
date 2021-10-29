@@ -1,25 +1,36 @@
 package com.example.githubuserapp.ui.main
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SearchView
+import androidx.datastore.core.DataStore
+import androidx.datastore.dataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.githubuserapp.R
 import com.example.githubuserapp.adapter.UserAdapter
 import com.example.githubuserapp.data.model.User
 import com.example.githubuserapp.databinding.ActivityMainBinding
+import com.example.githubuserapp.prefs.SettingPreferences
 import com.example.githubuserapp.ui.favorite.FavoriteUserActivity
 import com.example.githubuserapp.ui.setting.SettingActivity
+import com.example.githubuserapp.ui.setting.SettingViewModel
+import com.example.githubuserapp.ui.setting.ViewModelFactory
 import com.example.githubuserapp.ui.userdetail.UserDetailActivity
+
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
+    private lateinit var settingViewModel: SettingViewModel
     private lateinit var userAdapter: UserAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +38,17 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setTheme(R.style.Theme_GitHubUserApp)
         setContentView(binding.root)
+
+        // Load latest preferences if exists
+        val pref = SettingPreferences.getInstance(dataStore)
+        settingViewModel = ViewModelProvider(this, ViewModelFactory(pref)).get(SettingViewModel::class.java)
+        settingViewModel.getThemeSettings().observe(this, { isDarkModeActive: Boolean ->
+            if (isDarkModeActive) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+        })
 
         // Show Not Found before data was loaded
         showNotFound()
@@ -108,11 +130,11 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        // Showing a Toast if error has been occurred
         viewModel.status.observe(this, { status ->
             // If status false, then it means error
             if (!status) {
-                Toast.makeText(this@MainActivity, "An error has been occurred!", Toast.LENGTH_SHORT).show()
+                hideProgressBar()
+                showNotFound()
             }
         })
     }

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:theme="@style/Theme.GitHubUserApp"
+    style="@style/BackgroundColor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.favorite.FavoriteUserActivity">
@@ -52,6 +53,7 @@
 
     <!-- Progress Bar Section -->
     <ProgressBar
+        android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminateTint="@color/light_blue"
@@ -63,6 +65,7 @@
 
     <!-- Not Found Text Section Start -->
     <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/no_favorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -80,12 +83,12 @@
             android:layout_margin="4dp"
             android:contentDescription="@string/search_icon"
             android:src="@drawable/ic_no_sign"
+            style="@style/NotFoundIcon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/light_grey" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_not_found"
@@ -93,10 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:text="@string/dont_have_favorite"
-            android:textAlignment="center"
-            android:textColor="@color/extra_light_grey"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            style="@style/NotFoundTitle"
             app:layout_constraintEnd_toEndOf="@+id/iv_search_icon"
             app:layout_constraintStart_toStartOf="@id/iv_search_icon"
             app:layout_constraintTop_toBottomOf="@+id/iv_search_icon" />

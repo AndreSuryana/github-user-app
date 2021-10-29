@@ -52,6 +52,7 @@
 
     <!-- Progress Bar Section -->
     <ProgressBar
+        android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminateTint="@color/light_blue"
@@ -63,6 +64,7 @@
 
     <!-- Not Found Text Section Start -->
     <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/no_following"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -80,12 +82,12 @@
             android:layout_margin="4dp"
             android:src="@drawable/ic_no_sign"
             android:contentDescription="@string/search_icon"
+            style="@style/NotFoundIcon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/light_grey" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_not_found"
@@ -93,9 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:text="@string/no_folls"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            style="@style/NotFoundTitle"
             app:layout_constraintEnd_toEndOf="@+id/iv_search_icon"
             app:layout_constraintStart_toStartOf="@id/iv_search_icon"
             app:layout_constraintTop_toBottomOf="@+id/iv_search_icon" />
