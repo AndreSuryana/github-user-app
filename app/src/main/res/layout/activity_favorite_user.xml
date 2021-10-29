@@ -2,9 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:theme="@style/Theme.GitHubUserApp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.MainActivity">
+    tools:context=".ui.favorite.FavoriteUserActivity">
 
     <!-- Toolbar Section Start -->
     <androidx.appcompat.widget.Toolbar
@@ -13,7 +14,6 @@
         android:layout_height="wrap_content"
         android:background="@color/dark_grey"
         android:minHeight="?attr/actionBarSize"
-        android:theme="@style/ToolbarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -22,7 +22,7 @@
             android:id="@+id/iv_toolbar_image"
             android:layout_width="26dp"
             android:layout_height="26dp"
-            android:layout_gravity="start"
+            android:layout_gravity="center"
             android:src="@drawable/ic_github"
             android:contentDescription="@string/github_icon"/>
 
@@ -30,60 +30,27 @@
             android:id="@+id/tv_toolbar_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
+            android:layout_gravity="center"
             android:layout_marginStart="24dp"
-            android:text="@string/app_name"
+            android:text="@string/favorite"
             android:textColor="@color/extra_light_grey"
             android:textSize="22sp"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btn_setting"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="12dp"
-            android:background="@drawable/ic_setting"
-            android:layout_gravity="end" />
-
-        <Button
-            android:id="@+id/btn_favorite"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"
-            android:background="@drawable/ic_favorite_filled"
-            android:layout_gravity="end"/>
-
-
     </androidx.appcompat.widget.Toolbar>
     <!-- Toolbar Section End -->
 
-    <!-- Search View Section -->
-    <SearchView
-        android:id="@+id/sv_search_user"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_margin="16dp"
-        android:autofillHints="username"
-        android:background="@drawable/shape_search"
-        android:queryHint="@string/search"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_main" />
-
     <!-- Recycler View Section -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_users"
+        android:id="@+id/rv_favorite"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
         tools:listitem="@layout/item_row_user"
         android:nestedScrollingEnabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sv_search_user" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar_main" />
 
     <!-- Progress Bar Section -->
     <ProgressBar
@@ -92,37 +59,36 @@
         android:layout_height="wrap_content"
         android:indeterminateTint="@color/light_blue"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/rv_users"
-        app:layout_constraintEnd_toEndOf="@+id/rv_users"
-        app:layout_constraintStart_toStartOf="@+id/rv_users"
-        app:layout_constraintTop_toTopOf="@+id/rv_users" />
+        app:layout_constraintBottom_toBottomOf="@+id/rv_favorite"
+        app:layout_constraintEnd_toEndOf="@id/rv_favorite"
+        app:layout_constraintStart_toStartOf="@id/rv_favorite"
+        app:layout_constraintTop_toTopOf="@+id/rv_favorite" />
 
     <!-- Not Found Text Section Start -->
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/not_found"
+        android:id="@+id/no_favorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:gravity="center"
+        android:orientation="vertical"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@id/rv_users"
-        app:layout_constraintEnd_toEndOf="@+id/rv_users"
-        app:layout_constraintStart_toStartOf="@id/rv_users"
-        app:layout_constraintTop_toTopOf="@+id/rv_users">
+        app:layout_constraintBottom_toBottomOf="@+id/rv_favorite"
+        app:layout_constraintEnd_toEndOf="@id/rv_favorite"
+        app:layout_constraintStart_toStartOf="@+id/rv_favorite"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_main">
 
         <ImageView
             android:id="@+id/iv_search_icon"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="4dp"
-            android:src="@drawable/ic_search"
             android:contentDescription="@string/search_icon"
+            android:src="@drawable/ic_no_sign"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.424"
             app:tint="@color/light_grey" />
 
         <TextView
@@ -130,24 +96,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:text="@string/not_found"
-            android:textStyle="bold"
-            android:textSize="18sp"
+            android:text="@string/dont_have_favorite"
             android:textAlignment="center"
+            android:textColor="@color/extra_light_grey"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/iv_search_icon"
             app:layout_constraintStart_toStartOf="@id/iv_search_icon"
             app:layout_constraintTop_toBottomOf="@+id/iv_search_icon" />
-
-        <TextView
-            android:id="@+id/tv_not_found_subtitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:text="@string/try_something"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="@+id/tv_not_found"
-            app:layout_constraintStart_toStartOf="@+id/tv_not_found"
-            app:layout_constraintTop_toBottomOf="@+id/tv_not_found" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
     <!-- Not Found Text Section End -->

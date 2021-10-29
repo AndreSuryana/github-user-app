@@ -12,33 +12,33 @@ import com.example.githubuserapp.R
 import com.example.githubuserapp.adapter.UserAdapter
 import com.example.githubuserapp.data.model.User
 import com.example.githubuserapp.databinding.ActivityMainBinding
+import com.example.githubuserapp.ui.favorite.FavoriteUserActivity
+import com.example.githubuserapp.ui.setting.SettingActivity
 import com.example.githubuserapp.ui.userdetail.UserDetailActivity
 
 class MainActivity : AppCompatActivity() {
 
-    private val binding: ActivityMainBinding by lazy {
-        ActivityMainBinding.inflate(layoutInflater)
-    }
-
+    private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
     private lateinit var userAdapter: UserAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setTheme(R.style.Theme_GitHubUserApp)
         setContentView(binding.root)
 
-        // Show Not Found Fragment before data was loaded
-        showNotFoundFragment()
+        // Show Not Found before data was loaded
+        showNotFound()
 
         // Adapter Setup
         userAdapter = UserAdapter()
-        // userAdapter.notifyDataSetChanged()
         userAdapter.setOnItemClickCallback(object : UserAdapter.OnItemClickCallback {
             override fun onItemClicked(user: User) {
                 Intent(this@MainActivity, UserDetailActivity::class.java).also {
                     it.putExtra(UserDetailActivity.EXTRA_USERNAME, user.login)
                     it.putExtra(UserDetailActivity.EXTRA_ID, user.id)
+                    it.putExtra(UserDetailActivity.EXTRA_AVATAR, user.avatarUrl)
                     startActivity(it)
                 }
             }
@@ -60,11 +60,25 @@ class MainActivity : AppCompatActivity() {
 
         // Execute when user submit on SearchView
         searchUser()
+
+        // Button Favorite
+        binding.btnFavorite.setOnClickListener {
+            Intent(this@MainActivity, FavoriteUserActivity::class.java).also {
+                startActivity(it)
+            }
+        }
+
+        // Button Setting
+        binding.btnSetting.setOnClickListener {
+            Intent(this@MainActivity, SettingActivity::class.java).also {
+                startActivity(it)
+            }
+        }
     }
 
     override fun onPause() {
         super.onPause()
-        hideNotFoundFragment()
+        hideNotFound()
     }
 
     private fun searchUser() {
@@ -72,7 +86,7 @@ class MainActivity : AppCompatActivity() {
             android.widget.SearchView.OnQueryTextListener {
 
             override fun onQueryTextSubmit(query: String?): Boolean {
-                hideNotFoundFragment()
+                hideNotFound()
                 showProgressBar()
                 viewModel.setSearchUsersResult(query)
                 return true
@@ -84,17 +98,17 @@ class MainActivity : AppCompatActivity() {
         })
 
         // View Model Observer
-        viewModel.getSearchUserResult().observe(this, {
-            if (it != null) {
-                userAdapter.setListUsers(it)
+        viewModel.getSearchUserResult().observe(this, { users ->
+            if (users != null) {
+                userAdapter.setListUsers(users)
                 hideProgressBar()
             }
-            if (it.size == 0) {
-                showNotFoundFragment()
+            if (users.size == 0) {
+                showNotFound()
             }
         })
 
-        // Showing a Toast if error has been occured
+        // Showing a Toast if error has been occurred
         viewModel.status.observe(this, { status ->
             // If status false, then it means error
             if (!status) {
@@ -103,11 +117,11 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun showNotFoundFragment() {
+    private fun showNotFound() {
         binding.notFound.visibility = View.VISIBLE
     }
 
-    private fun hideNotFoundFragment() {
+    private fun hideNotFound() {
         binding.notFound.visibility = View.GONE
     }
 

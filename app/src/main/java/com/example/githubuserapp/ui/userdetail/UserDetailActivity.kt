@@ -30,5 +30,6 @@ class UserDetailActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_USERNAME = "extra_username"
         const val EXTRA_ID = "extra_id"
+        const val EXTRA_AVATAR = "extra_avatar"
     }
 }

@@ -54,9 +54,9 @@ class InformationViewModel(application: Application) : AndroidViewModel(applicat
         return user
     }
 
-    suspend fun addFavoriteUser(id: Int?, username: String?) {
+    suspend fun addFavoriteUser(id: Int?, username: String?, avatarUrl: String?) {
         CoroutineScope(Dispatchers.IO).launch {
-            val favUser = FavoriteUser(id, username)
+            val favUser = FavoriteUser(id, username, avatarUrl)
             favoriteUserDao?.addFavoriteUser(favUser)
         }
     }

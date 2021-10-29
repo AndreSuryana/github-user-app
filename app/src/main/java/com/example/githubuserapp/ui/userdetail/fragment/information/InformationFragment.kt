@@ -45,6 +45,7 @@ class InformationFragment : Fragment() {
         // Getting username value from MainActivity via BottomNavDetailActivity
         val username = activity?.intent?.getStringExtra(UserDetailActivity.EXTRA_USERNAME)
         val id = activity?.intent?.getIntExtra(UserDetailActivity.EXTRA_ID, 0)
+        val avatarUrl = activity?.intent?.getStringExtra(UserDetailActivity.EXTRA_AVATAR)
 
         // View Model Declaration and Observer
         viewModel = ViewModelProvider(this).get(InformationViewModel::class.java)
@@ -88,7 +89,7 @@ class InformationFragment : Fragment() {
             checked = !checked
             CoroutineScope(Dispatchers.IO).launch {
                 if (checked) {
-                    viewModel.addFavoriteUser(id, username)
+                    viewModel.addFavoriteUser(id, username, avatarUrl)
                 } else {
                     viewModel.deleteFavoriteUser(id)
                 }

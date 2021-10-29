@@ -3,10 +3,11 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cv_user"
+    android:theme="@style/Theme.GitHubUserApp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:backgroundTint="@color/extra_dark_grey"
+    card_view:cardBackgroundColor="@color/trans"
     android:outlineProvider="background"
     card_view:cardCornerRadius="0dp">
 
@@ -29,7 +30,6 @@
         <TextView
             android:id="@+id/tv_username"
             style="@style/TextContent.Username"
-            android:textSize="18sp"
             android:layout_marginBottom="0dp"
             card_view:layout_constraintBottom_toBottomOf="@+id/iv_avatar"
             card_view:layout_constraintStart_toEndOf="@+id/iv_avatar"

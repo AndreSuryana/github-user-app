@@ -33,4 +33,8 @@
     <string name="no_folls" tools:ignore="ExtraTranslation">No one follows this user</string>
     <string name="search_icon">Search Icon</string>
     <string name="share">Share</string>
+    <string name="favorite">Favorite</string>
+    <string name="setting">Setting</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="dont_have_favorite">You don\'t have a favorite user yet!</string>
 </resources>

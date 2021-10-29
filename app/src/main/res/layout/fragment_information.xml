@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:theme="@style/Theme.GitHubUserApp"
-    android:background="@color/extra_dark_grey"
+    style="@style/BackgroundColor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginBottom="?attr/actionBarSize"
@@ -128,6 +128,7 @@
 
         <TextView
             android:id="@+id/tv_bio"
+            style="@style/InfoTextContent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
@@ -135,7 +136,6 @@
             android:layout_marginEnd="24dp"
             android:padding="10dp"
             android:text="@string/bio"
-            android:textColor="@color/extra_light_grey"
             android:textSize="16sp"
             android:background="@drawable/outlined_rounded_rectangle"
             app:layout_constraintEnd_toEndOf="parent"
@@ -238,24 +238,26 @@
             android:id="@+id/toggle_favorite"
             android:layout_width="28dp"
             android:layout_height="28dp"
-            android:layout_marginStart="16dp"
             android:background="@drawable/toggle_favorite"
             android:focusable="false"
             android:focusableInTouchMode="false"
             android:textOff=""
             android:textOn=""
-            app:layout_constraintBottom_toBottomOf="@+id/tv_username"
-            app:layout_constraintStart_toEndOf="@+id/tv_username"
-            app:layout_constraintTop_toTopOf="@id/tv_name" />
+            android:translationX="14dp"
+            android:translationY="14dp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_avatar"
+            app:layout_constraintEnd_toEndOf="@+id/iv_avatar" />
 
         <Button
             android:id="@+id/btn_share"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="56dp"
             android:layout_marginTop="32dp"
             android:drawableEnd="@drawable/ic_share"
             android:text="@string/share"
             android:textSize="18sp"
+            android:textColor="@color/extra_light_grey"
+            android:backgroundTint="@color/green"
             app:layout_constraintEnd_toEndOf="@+id/tv_bio"
             app:layout_constraintStart_toStartOf="@+id/tv_bio"
             app:layout_constraintTop_toBottomOf="@id/iv_twitter" />

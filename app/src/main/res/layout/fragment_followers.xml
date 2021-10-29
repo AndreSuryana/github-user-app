@@ -98,7 +98,6 @@
             android:layout_margin="4dp"
             android:text="@string/no_followers"
             android:textAlignment="center"
-            android:textColor="@color/extra_light_grey"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/iv_search_icon"

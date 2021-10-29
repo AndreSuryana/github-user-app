@@ -1,5 +1,6 @@
 package com.example.githubuserapp.ui.userdetail.fragment.followers
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.githubuserapp.adapter.UserAdapter
+import com.example.githubuserapp.data.model.User
 import com.example.githubuserapp.databinding.FragmentFollowersBinding
 import com.example.githubuserapp.ui.userdetail.UserDetailActivity
 
@@ -35,9 +37,22 @@ class FollowersFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Get username value from MainActivity
+        username =
+            activity?.intent?.getStringExtra(UserDetailActivity.EXTRA_USERNAME).toString()
+
         // Adapter Setup
         userAdapter = UserAdapter()
-        // userAdapter.notifyDataSetChanged()
+        userAdapter.setOnItemClickCallback(object : UserAdapter.OnItemClickCallback {
+            override fun onItemClicked(user: User) {
+                Intent(activity, UserDetailActivity::class.java).also {
+                    it.putExtra(UserDetailActivity.EXTRA_USERNAME, user.login)
+                    it.putExtra(UserDetailActivity.EXTRA_ID, user.id)
+                    it.putExtra(UserDetailActivity.EXTRA_AVATAR, user.avatarUrl)
+                    startActivity(it)
+                }
+            }
+        })
 
         // View Model Setup
         viewModel =
@@ -52,10 +67,6 @@ class FollowersFragment : Fragment() {
 
         // Show progress bar, while getting data from api
         showProgressBar()
-
-        // Get username value from MainActivity
-        username =
-            activity?.intent?.getStringExtra(UserDetailActivity.EXTRA_USERNAME).toString()
 
         // View Model
         viewModel.setListFollowers(username)
