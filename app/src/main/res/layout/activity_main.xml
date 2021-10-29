@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/BackgroundColor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.main.MainActivity">
@@ -19,7 +20,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/iv_toolbar_image"
             android:layout_width="26dp"
             android:layout_height="26dp"
             android:layout_gravity="start"
@@ -27,7 +27,6 @@
             android:contentDescription="@string/github_icon"/>
 
         <TextView
-            android:id="@+id/tv_toolbar_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
@@ -38,7 +37,6 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/btn_setting"
             android:layout_width="26dp"
             android:layout_height="26dp"
             android:layout_marginStart="4dp"
@@ -47,7 +45,6 @@
             android:layout_gravity="end" />
 
         <Button
-            android:id="@+id/btn_favorite"
             android:layout_width="26dp"
             android:layout_height="26dp"
             android:layout_marginStart="4dp"
@@ -87,7 +84,6 @@
 
     <!-- Progress Bar Section -->
     <ProgressBar
-        android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminateTint="@color/light_blue"
@@ -99,12 +95,11 @@
 
     <!-- Not Found Text Section Start -->
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/not_found"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@id/rv_users"
         app:layout_constraintEnd_toEndOf="@+id/rv_users"
         app:layout_constraintStart_toStartOf="@id/rv_users"
@@ -117,13 +112,13 @@
             android:layout_margin="4dp"
             android:src="@drawable/ic_search"
             android:contentDescription="@string/search_icon"
+            style="@style/NotFoundIcon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.424"
-            app:tint="@color/light_grey" />
+            app:layout_constraintVertical_bias="0.424" />
 
         <TextView
             android:id="@+id/tv_not_found"
@@ -131,20 +126,17 @@
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:text="@string/not_found"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:textAlignment="center"
+            style="@style/NotFoundTitle"
             app:layout_constraintEnd_toEndOf="@+id/iv_search_icon"
             app:layout_constraintStart_toStartOf="@id/iv_search_icon"
             app:layout_constraintTop_toBottomOf="@+id/iv_search_icon" />
 
         <TextView
-            android:id="@+id/tv_not_found_subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:text="@string/try_something"
-            android:textSize="14sp"
+            style="@style/NotFoundSubtitle"
             app:layout_constraintEnd_toEndOf="@+id/tv_not_found"
             app:layout_constraintStart_toStartOf="@+id/tv_not_found"
             app:layout_constraintTop_toBottomOf="@+id/tv_not_found" />

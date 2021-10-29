@@ -14,7 +14,7 @@ import retrofit2.Response
 class MainViewModel : ViewModel() {
 
     private val users = MutableLiveData<ArrayList<User>>()
-    val listUsers: LiveData<ArrayList<User>>
+    private val listUsers: LiveData<ArrayList<User>>
         get() = users
 
     var status = MutableLiveData<Boolean>()

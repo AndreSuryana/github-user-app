@@ -73,7 +73,6 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_username" />
 
         <TextView
-            android:id="@+id/repository"
             style="@style/ProfileCountText.Label"
             android:text="@string/repository"
             app:layout_constraintEnd_toEndOf="@+id/tv_repository_value"
@@ -107,7 +106,6 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_username" />
 
         <TextView
-            android:id="@+id/tv_following"
             style="@style/ProfileCountText.Label"
             android:text="@string/following"
             app:layout_constraintEnd_toEndOf="@+id/tv_following_value"
@@ -117,7 +115,6 @@
 
         <!-- Detail Information Section Start -->
         <TextView
-            android:id="@+id/tv_label"
             style="@style/ProfileCountText.Label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -154,7 +151,6 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_bio" />
 
         <TextView
-            android:id="@+id/tv_company"
             style="@style/InfoTextContent"
             android:layout_marginStart="8dp"
             android:text="@string/company"
@@ -173,7 +169,6 @@
             app:layout_constraintTop_toBottomOf="@+id/iv_company" />
 
         <TextView
-            android:id="@+id/tv_location"
             style="@style/InfoTextContent"
             android:layout_marginStart="8dp"
             android:layout_toEndOf="@+id/iv_location"
@@ -193,7 +188,6 @@
             app:layout_constraintTop_toBottomOf="@+id/iv_location" />
 
         <TextView
-            android:id="@+id/tv_email"
             style="@style/InfoTextContent"
             android:layout_marginStart="8dp"
             android:layout_toEndOf="@+id/iv_location"
@@ -213,7 +207,6 @@
             app:layout_constraintTop_toBottomOf="@+id/iv_email" />
 
         <TextView
-            android:id="@+id/tv_twitter"
             style="@style/InfoTextContent"
             android:layout_marginStart="8dp"
             android:layout_toEndOf="@+id/iv_location"
@@ -224,7 +217,6 @@
         <!-- Detail Information Section Start -->
 
         <ProgressBar
-            android:id="@+id/progress_bar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:indeterminateTint="@color/light_blue"
@@ -235,7 +227,6 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ToggleButton
-            android:id="@+id/toggle_favorite"
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:background="@drawable/toggle_favorite"
@@ -249,7 +240,6 @@
             app:layout_constraintEnd_toEndOf="@+id/iv_avatar" />
 
         <Button
-            android:id="@+id/btn_share"
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_marginTop="32dp"

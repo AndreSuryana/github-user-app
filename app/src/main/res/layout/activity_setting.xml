@@ -20,7 +20,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/iv_toolbar_image"
             android:layout_width="26dp"
             android:layout_height="26dp"
             android:layout_gravity="center"
@@ -28,7 +27,6 @@
             android:contentDescription="@string/github_icon"/>
 
         <TextView
-            android:id="@+id/tv_toolbar_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -42,14 +40,12 @@
     <!-- Toolbar Section End -->
 
     <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/switch_theme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/dark_mode"
         android:textSize="20sp"
         android:textStyle="bold"
         app:switchPadding="8dp"
-        android:checked="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

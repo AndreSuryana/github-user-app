@@ -15,26 +15,10 @@
         <item name="android:windowBackground">@color/extra_dark_grey</item>
     </style>
 
-    <style name="Theme.GitHubUserApp.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowBackground">@color/extra_dark_grey</item>
-    </style>
-
-    <style name="Theme.GitHubUserApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="Theme.GitHubUserApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
     <!-- My custom theme -->
     <style name="SplashScreen" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_image</item>
         <item name="android:statusBarColor">@color/dark_grey</item>
-    </style>
-
-    <style name="UserDetail" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:background">@color/extra_dark_grey</item>
     </style>
 
     <style name="AvatarProfileBG">
@@ -101,27 +85,29 @@
         <item name="android:layout_centerVertical">true</item>
     </style>
 
-    <style name="ButtonGreen">
-        <item name="colorPrimary">@color/green</item>
-        <item name="colorPrimaryVariant">@color/green</item>
-    </style>
-
-    <style name="ButtonBlue">
-        <item name="android:textColor">@color/extra_light_grey</item>
-        <item name="android:backgroundTint">@color/light_blue</item>
-    </style>
-
     <style name="ToolbarTheme" parent="Theme.MaterialComponents">
         <item name="colorPrimary">@color/extra_light_grey</item>
         <item name="colorPrimaryVariant">@color/extra_light_grey</item>
     </style>
 
-    <style name="ItemRowUserStyle">
+    <style name="BackgroundColor">
         <item name="android:background">@color/extra_dark_grey</item>
     </style>
 
-    <style name="BackgroundColor">
-        <item name="android:background">@color/extra_dark_grey</item>
+    <style name="NotFoundIcon">
+        <item name="tint">@color/light_grey</item>
+    </style>
+
+    <style name="NotFoundTitle">
+        <item name="android:textColor">@color/extra_light_grey</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="NotFoundSubtitle">
+        <item name="android:textColor">@color/light_grey</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
 </resources>

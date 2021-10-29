@@ -19,7 +19,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/iv_toolbar_image"
             android:layout_width="26dp"
             android:layout_height="26dp"
             android:layout_gravity="center"
@@ -27,7 +26,6 @@
             android:contentDescription="@string/github_icon"/>
 
         <TextView
-            android:id="@+id/tv_toolbar_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -54,7 +52,6 @@
 
     <!-- Progress Bar Section -->
     <ProgressBar
-        android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminateTint="@color/light_blue"
@@ -66,7 +63,6 @@
 
     <!-- Not Found Text Section Start -->
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/no_following"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
