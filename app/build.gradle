@@ -22,6 +22,8 @@ android {
                 arg("room.schemaLocation", "$projectDir/schemas")
             }
         }
+
+        buildConfigField("String", "GITHUB_TOKEN", '"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"')
     }
 
     buildTypes {
